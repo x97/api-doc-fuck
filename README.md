@@ -49,3 +49,48 @@ class BookAPI(restful.RESTAPI):
 
 
 当然你也可以通过命令`api_fuck buid --type=markdown` 生成markdown文档， 在build文件夹下可以看到生成的文档。 
+
+
+
+
+
+----
+
+另一种构想。
+
+通过一种新的文本方式书写RESTful API文档
+
+首先还是定义数据模型
+
+```markdown
+Author: {
+     id: auto_increment
+     name: string(32, required, not_null)
+}
+
+BooK: {
+     id: auto_increment
+     name: string(32, requied, not_null)
+     published_at: date(requied)
+}
+
+```
+
+
+
+然后定义RESTful接口
+
+```markdown
+api BooK: {
+    resource: BooK
+    path: /api/book/
+    lookup_fields: id
+    methods: {"create": "POST", "list": "GET", "retrieve": "GET"}
+    create_fields: [name, published, author_id]
+    retrieve_fields: [id, name, published_at, author]
+}
+```
+
+
+
+通过`api_fuck server` 生成文档
