@@ -20,7 +20,7 @@ class Book(fields.ObjectType):
     id = fields.AutoField('ID')
     name = fields.String(max_length=32, required=True, null=False)
     published_at = fields.Data()
-	author = fields.RelatedField(Author, related_column_name="id", column_name='author_id')
+    author = fields.RelatedField(Author, related_column_name="id", column_name='author_id')
 ```
 
 
