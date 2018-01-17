@@ -32,7 +32,7 @@ class Book(fields.ObjectType):
 ```python
 from api_fuck import restful 
 
-@restful.router(method={"create": "POST", "list": "GET", "retrieve": "GET"})
+@restful.router(method={"create": "POST", "list": "GET", "retrieve": "GET"}, path="/api/book/")
 class BookAPI(restful.RESTAPI):
     class Meta:
         resourse = BooK
